@@ -36,7 +36,7 @@ After performing the [Segment Task](../tasks/segment.md), it's sometimes desirab
     from ultralytics import YOLO
 
     # Load a model
-    model = YOLO('yolov8n-seg.pt')
+    model = YOLO("yolov8n-seg.pt")
 
     # Run inference
     results = model.predict()
@@ -108,7 +108,7 @@ After performing the [Segment Task](../tasks/segment.md), it's sometimes desirab
 
     1. For more info on `c.masks.xy` see [Masks Section from Predict Mode](../modes/predict.md#masks).
 
-    2. Here, the values are cast into `np.int32` for compatibility with `drawContours()` function from OpenCV.
+    2. Here the values are cast into `np.int32` for compatibility with `drawContours()` function from OpenCV.
 
     3. The OpenCV `drawContours()` function expects contours to have a shape of `[N, 1, 2]` expand section below for more details.
 
@@ -145,7 +145,7 @@ After performing the [Segment Task](../tasks/segment.md), it's sometimes desirab
 
     ***
 
-5. Next the there are 2 options for how to move forward with the image from this point and a subsequent option for each.
+5. Next there are 2 options for how to move forward with the image from this point and a subsequent option for each.
 
     ### Object Isolation Options
 
@@ -159,7 +159,6 @@ After performing the [Segment Task](../tasks/segment.md), it's sometimes desirab
 
             # Isolate object with binary mask
             isolated = cv2.bitwise_and(mask3ch, img)
-
             ```
 
             ??? question "How does this work?"
@@ -209,7 +208,6 @@ After performing the [Segment Task](../tasks/segment.md), it's sometimes desirab
             ```py
             # Isolate object with transparent background (when saved as PNG)
             isolated = np.dstack([img, b_mask])
-
             ```
 
             ??? question "How does this work?"
@@ -266,7 +264,7 @@ After performing the [Segment Task](../tasks/segment.md), it's sometimes desirab
 
         ```py
         # Save isolated object to file
-        _ = cv2.imwrite(f'{img_name}_{label}-{ci}.png', iso_crop)
+        _ = cv2.imwrite(f"{img_name}_{label}-{ci}.png", iso_crop)
         ```
 
         - In this example, the `img_name` is the base-name of the source image file, `label` is the detected class-name, and `ci` is the index of the object detection (in case of multiple instances with the same class name).

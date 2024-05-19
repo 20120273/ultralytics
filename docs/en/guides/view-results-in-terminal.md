@@ -10,7 +10,7 @@ keywords: YOLOv8, VSCode, Terminal, Remote Development, Ultralytics, SSH, Object
   <img width="800" src="https://raw.githubusercontent.com/saitoha/libsixel/data/data/sixel.gif" alt="Sixel example of image in Terminal">
 </p>
 
-Image from the the [libsixel](https://saitoha.github.io/libsixel/) website.
+Image from the [libsixel](https://saitoha.github.io/libsixel/) website.
 
 ## Motivation
 
@@ -47,9 +47,8 @@ The VSCode compatible protocols for viewing images using the integrated terminal
     import io
 
     import cv2 as cv
-
-    from ultralytics import YOLO
     from sixel import SixelWriter
+    from ultralytics import YOLO
     ```
 
 1. Load a model and execute inference, then plot the results and store in a variable. See more about inference arguments and working with results on the [predict mode](../modes/predict.md) page.
