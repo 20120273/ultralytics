@@ -7,6 +7,7 @@ from pathlib import Path
 import torch
 import torch.nn as nn
 
+
 from ultralytics.nn.modules import (
     AIFI,
     C1,
@@ -17,7 +18,7 @@ from ultralytics.nn.modules import (
     SPP,
     SPPELAN,
     SPPF,
-    SPPFCSPC,
+    SPPFCPSC,
     ADown,
     Bottleneck,
     BottleneckCSP,
@@ -870,7 +871,7 @@ def parse_model(d, ch, verbose=True):  # model_dict, input_channels(3)
             GhostBottleneck,
             SPP,
             SPPF,
-            SPPFCSPC,
+            SPPFCPSC,
             DWConv,
             Focus,
             BottleneckCSP,
