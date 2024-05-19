@@ -26,6 +26,7 @@ from .block import (
     SPP,
     SPPELAN,
     SPPF,
+    SPPFCSPC,
     ADown,
     BNContrastiveHead,
     Bottleneck,
@@ -99,6 +100,7 @@ __all__ = (
     "HGStem",
     "SPP",
     "SPPF",
+    "SPPFCPS"
     "C1",
     "C2",
     "C3",

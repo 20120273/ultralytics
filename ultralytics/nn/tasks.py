@@ -17,6 +17,7 @@ from ultralytics.nn.modules import (
     SPP,
     SPPELAN,
     SPPF,
+    SPPFCSPC,
     ADown,
     Bottleneck,
     BottleneckCSP,
@@ -25,6 +26,7 @@ from ultralytics.nn.modules import (
     C3Ghost,
     C3x,
     CBFuse,
+    CBAM,
     CBLinear,
     Classify,
     Concat,
@@ -868,6 +870,7 @@ def parse_model(d, ch, verbose=True):  # model_dict, input_channels(3)
             GhostBottleneck,
             SPP,
             SPPF,
+            SPPFCSPC,
             DWConv,
             Focus,
             BottleneckCSP,
@@ -1053,3 +1056,4 @@ def guess_model_task(model):
         "Explicitly define task for your model, i.e. 'task=detect', 'segment', 'classify','pose' or 'obb'."
     )
     return "detect"  # assume detect
+

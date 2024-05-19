@@ -105,3 +105,4 @@ class YOLOWorld(Model):
         # self.predictor = None  # reset predictor otherwise old names remain
         if self.predictor:
             self.predictor.model.names = classes
+
