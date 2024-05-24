@@ -16,6 +16,7 @@ from ultralytics.nn.modules import (
     C3TR,
     OBB,
     SPP,
+    SPD,
     SPPELAN,
     SPPF,
     SPPFCPSC,
