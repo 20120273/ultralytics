@@ -292,12 +292,12 @@ class ChannelAttention(nn.Module):
 
 class SPD(nn.Module):
     # Changing the dimension of the Tensor
-    def __init__(self, dimension=1):
+    def __init__(self,c1, dimension=1):
         super().__init__()
         self.d = dimension
 
     def forward(self, x):
-         return torch.cat([x[..., ::2, ::2], x[..., 1::2, ::2], x[..., ::2, 1::2], x[..., 1::2, 1::2]], 1)
+         return torch.cat([x[..., ::2, ::2], x[..., 1::2, ::2], x[..., ::2, 1::2], x[..., 1::2, 1::2]], self.d)
     
 class SpatialAttention(nn.Module):
     """Spatial-attention module."""
