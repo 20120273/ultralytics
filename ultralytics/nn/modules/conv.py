@@ -293,7 +293,7 @@ class ChannelAttention(nn.Module):
 class SPD(nn.Module):
     # Changing the dimension of the Tensor
     def __init__(self, c1, c2, k=1, s=1, d=1, act=True):
-        super(SPD).__init__()
+        super().__init__()
         self.conv = Conv(c1, c2, k, s, d, act=act)
 
     def forward(self, x):
