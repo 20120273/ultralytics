@@ -16,7 +16,7 @@ from ultralytics.nn.modules import (
     C3TR,
     OBB,
     SPP,
-    SPD,
+    space_to_depth,
     SPPELAN,
     SPPF,
     SPPFCPSC,
@@ -890,7 +890,7 @@ def parse_model(d, ch, verbose=True):  # model_dict, input_channels(3)
             DWConvTranspose2d,
             C3x,
             RepC3,
-            SPD,RepConv
+            RepConv
         }:
             c1, c2 = ch[f], args[0]
             if c2 != nc:  # if c2 not equal to number of classes (i.e. for Classify() output)
@@ -920,6 +920,8 @@ def parse_model(d, ch, verbose=True):  # model_dict, input_channels(3)
             args = [ch[f]]
         elif m is Concat:
             c2 = sum(ch[x] for x in f)
+        elif m is space_to_depth:
+            c2 = 4*ch[f]
         elif m is CBAM:
             c1, c2 = ch[f], args[0]
             if c2 != nc:
@@ -937,6 +939,7 @@ def parse_model(d, ch, verbose=True):  # model_dict, input_channels(3)
             args = [c1, c2, *args[1:]]
         elif m is CBFuse:
             c2 = ch[f[-1]]
+        
         else:
             c2 = ch[f]
 
@@ -950,8 +953,6 @@ def parse_model(d, ch, verbose=True):  # model_dict, input_channels(3)
         layers.append(m_)
         if i == 0:
             ch = []
-        if m is SPD:
-            c2*=4
         ch.append(c2)
     return nn.Sequential(*layers), sorted(save)
 
