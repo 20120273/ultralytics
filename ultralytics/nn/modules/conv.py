@@ -291,14 +291,16 @@ class ChannelAttention(nn.Module):
         return x * self.act(self.fc(self.pool(x)))
 
 class SPD(nn.Module):
-    # Changing the dimension of the Tensor
+    """Changing the dimension of the Tensor"""
     def __init__(self, c1, c2, k=1, s=1, d=1, act=True):
         super().__init__()
         self.conv = Conv(c1, c2, k, s, d, act=act)
 
     def forward(self, x):
         x = self.conv(x)
-        return torch.cat([x[..., ::2, ::2], x[..., 1::2, ::2], x[..., ::2, 1::2], x[..., 1::2, 1::2]], 1)
+        x = torch.cat([x[..., ::2, ::2], x[..., 1::2, ::2], x[..., ::2, 1::2], x[..., 1::2, 1::2]], 1)
+        print(x.size())
+        return 
     
 class SpatialAttention(nn.Module):
     """Spatial-attention module."""
