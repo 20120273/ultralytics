@@ -53,6 +53,7 @@ from ultralytics.nn.modules import (
     Segment,
     Silence,
     WorldDetect,
+    ResBlock_CBAM,
 )
 from ultralytics.utils import DEFAULT_CFG_DICT, DEFAULT_CFG_KEYS, LOGGER, colorstr, emojis, yaml_load
 from ultralytics.utils.checks import check_requirements, check_suffix, check_yaml
@@ -886,6 +887,7 @@ def parse_model(d, ch, verbose=True):  # model_dict, input_channels(3)
             C3,
             C3TR,
             C3Ghost,
+            ResBlock_CBAM,
             nn.ConvTranspose2d,
             DWConvTranspose2d,
             C3x,
