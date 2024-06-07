@@ -41,17 +41,17 @@ head:
 
   - [-1, 1, nn.Upsample, [None, 2, "nearest"]] #22
   - [[-1, 3], 1, Concat, [1]] #23
-  - [-1, 3, C2f, [256]] # 24
-  - [-1, 1, ResBlock_CBAM, [256]] # 25 dau detect
-  - [-1, 1, Conv, [256, 3, 2]] # 26
+  - [-1, 3, C2f, [128]] # 24
+  - [-1, 1, ResBlock_CBAM, [128]] # 25 dau detect
+  - [-1, 1, Conv, [128, 3, 2]] # 26
   - [[-1, 19], 1, Concat, [1]] #27 cat head P4
-  - [-1, 3, C2f, [512]] # 28 (P4/16-medium) 
-  - [-1, 1, ResBlock_CBAM, [512]] # 29 dau detect
-  - [-1, 1, Conv, [512, 3, 2]] #30
+  - [-1, 3, C2f, [256]] # 28 (P4/16-medium) 
+  - [-1, 1, ResBlock_CBAM, [256]] # 29 dau detect
+  - [-1, 1, Conv, [256, 3, 2]] #30
   - [[-1, 16], 1, Concat, [1]] # 31 cat head P5
-  - [-1, 3, C2f, [1024]] # 32 (P5/32-large)
-  - [-1, 1, ResBlock_CBAM, [1024]] #33 dau detect
-  - [-1, 1, Conv, [1024, 3, 2]] # 34
+  - [-1, 3, C2f, [512]] # 32 (P5/32-large)
+  - [-1, 1, ResBlock_CBAM, [512]] #33 dau detect
+  - [-1, 1, Conv, [512, 3, 2]] # 34
   - [[-1, 13], 1, Concat, [1]] # 35 cat head P5
   - [-1, 3, C2f, [1024]] # 36 (P5/32-large)
   - [-1, 1, ResBlock_CBAM, [1024]] #37 dau detect
