@@ -53,6 +53,6 @@ head:
   - [-1, 1, ResBlock_CBAM, [1024]] #33 dau detect
   - [-1, 1, Conv, [1024, 3, 2]] # 34
   - [[-1, 13], 1, Concat, [1]] # 35 cat head P5
-  - [-1, 3, C2f, [2048]] # 36 (P5/32-large)
-  - [-1, 1, ResBlock_CBAM, [2048]] #37 dau detect
+  - [-1, 3, C2f, [1024]] # 36 (P5/32-large)
+  - [-1, 1, ResBlock_CBAM, [1024]] #37 dau detect
   - [[23, 27, 31, 35], 1, Detect, [nc]] # 38 Detect(P3, P4, P5)
