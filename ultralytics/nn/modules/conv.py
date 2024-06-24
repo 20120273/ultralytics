@@ -371,7 +371,9 @@ class ResBlock_CBAM(nn.Module):
 
         out += residual
         out = self.relu(out)
+        print("================")
         print(out.shape)
         return out
+
 
 
