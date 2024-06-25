@@ -364,15 +364,13 @@ class ResBlock_CBAM(nn.Module):
 
     def forward(self, x):
         residual = x
-        out = self.bottleneck(x)
-        out = self.cbam(out)
+        #out = self.bottleneck(x)
+        out = self.cbam(x)
         if self.downsampling:
             residual = self.downsample(x)
 
         out += residual
         out = self.relu(out)
-        print("================")
-        print(out.shape)
         return out
 
 
