@@ -1,10 +1,8 @@
 # Cải tiến YOLOv8 cho tác vụ nhận diện biển báo giao thông
 
 
-## Kiến trúc YOLOv8 cải tiến
-<p align="center">
-  <img src="img\archi.jpg" width="1024" title="details">
-</p>
+## Giới thiệu
+Dự án này tập trung vào việc cải tiến kiến trúc YOLOv8 cho việc nhận diện biển báo giao thông ở Việt Nam.
 
 <!-- ## Requirements -->
 
@@ -46,9 +44,9 @@ Một số hình ảnh về tập dữ liệu thực nghiệm:
 
 ## Phương pháp đề xuất
  Chúng tôi điều chỉnh kiến trúc mô hình YOLOv8 bằng thêm vào những phương pháp sau:
-  - Một lớp nhận diện vật thể nhỏ có feature map là 160x160
-  - **SPD-Conv mô đun**
-  - **ResBlockCBAM mô đun**
+  - **Một lớp nhận diện vật thể nhỏ**: Được thêm vào để nâng cao khả năng phát hiện các đối tượng nhỏ như biển báo giao thông, với bản đồ đặc trưng 160x160.
+  - **SPD-Conv mô đun**:  Giúp cải thiện quá trình trích xuất đặc trưng bằng cách tăng cường khả năng phân tích không gian.
+  - **ResBlockCBAM mô đun**: Tích hợp để cải thiện biểu diễn đặc trưng, giúp mô hình tập trung vào các khu vực quan trọng trong ảnh.
   <p align="center">
   <img src="img\archi.jpg" width="1024" title="details">
 </p>
