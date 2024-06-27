@@ -21,7 +21,8 @@ __all__ = (
     "CBAM",
     "Concat",
     "RepConv",
-    "ResBlock_CBAM"
+    "ResBlock_CBAM",
+    "space_to_depth"
 )
 
 
@@ -334,12 +335,19 @@ class Concat(nn.Module):
         return torch.cat(x, self.d)
 
 
+
+
+
+
+
+
+#==========================================================================================================
+#Improve module
+
 class ResBlock_CBAM(nn.Module):
-    def __init__(self, in_places, places, stride=1, downsampling=False, expansion=1):
+    def __init__(self, in_places, places, stride=1, expansion=1):
         super(ResBlock_CBAM, self).__init__()
         self.expansion = expansion
-        self.downsampling = downsampling
-
         self.bottleneck = nn.Sequential(
             nn.Conv2d(in_channels=in_places, out_channels=places, kernel_size=1, stride=1, bias=False),
             nn.BatchNorm2d(places),
@@ -353,25 +361,24 @@ class ResBlock_CBAM(nn.Module):
         )
         # self.cbam = CBAM(c1=places * self.expansion, c2=places * self.expansion, )
         self.cbam = CBAM(c1=places * self.expansion)
-
-        if self.downsampling:
-            self.downsample = nn.Sequential(
-                nn.Conv2d(in_channels=in_places, out_channels=places * self.expansion, kernel_size=1, stride=stride,
-                          bias=False),
-                nn.BatchNorm2d(places * self.expansion)
-            )
         self.relu = nn.ReLU(inplace=True)
 
     def forward(self, x):
         residual = x
         #out = self.bottleneck(x)
         out = self.cbam(x)
-        if self.downsampling:
-            residual = self.downsample(x)
+        
 
         out += residual
         out = self.relu(out)
         return out
 
 
+class space_to_depth(nn.Module):
+    # Changing the dimension of the Tensor
+    def __init__(self, dimension=1):
+        super().__init__()
+        self.d = dimension
 
+    def forward(self, x):
+         return torch.cat([x[..., ::2, ::2], x[..., 1::2, ::2], x[..., ::2, 1::2], x[..., 1::2, 1::2]], 1)

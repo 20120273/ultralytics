@@ -5,7 +5,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-from .conv import Conv, DWConv, GhostConv, LightConv, RepConv, autopad, CBAM
+from .conv import Conv, DWConv, GhostConv, LightConv, RepConv, autopad, CBAM,space_to_depth
 from .transformer import TransformerBlock
 
 __all__ = (
@@ -13,7 +13,6 @@ __all__ = (
     "HGBlock",
     "HGStem",
     "SPP",
-    "space_to_depth",
     "SPPF",
     "SPPFCPSC",
     "C1",
@@ -41,14 +40,7 @@ __all__ = (
     "Silence",
 )
 
-class space_to_depth(nn.Module):
-    # Changing the dimension of the Tensor
-    def __init__(self, dimension=1):
-        super().__init__()
-        self.d = dimension
 
-    def forward(self, x):
-         return torch.cat([x[..., ::2, ::2], x[..., 1::2, ::2], x[..., ::2, 1::2], x[..., 1::2, 1::2]], 1)
 class DFL(nn.Module):
     """
     Integral module of Distribution Focal Loss (DFL).

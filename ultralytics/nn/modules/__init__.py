@@ -27,7 +27,6 @@ from .block import (
     SPPELAN,
     SPPF,
     SPPFCPSC,
-    space_to_depth,
     ADown,
     BNContrastiveHead,
     Bottleneck,
@@ -64,6 +63,7 @@ from .conv import (
     RepConv,
     SpatialAttention,
     ResBlock_CBAM,
+    space_to_depth
 )
 from .head import OBB, Classify, Detect, Pose, RTDETRDecoder, Segment, WorldDetect
 from .transformer import (
