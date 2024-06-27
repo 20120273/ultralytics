@@ -45,10 +45,13 @@ Một số hình ảnh về tập dữ liệu thực nghiệm:
 </p>
 
 ## Phương pháp đề xuất
- Chúng tôi cải tiến mô hình YOLOv8 bằng thêm các cải tiến sau:
-  - Lớp nhận diện vật thể nhỏ
-  - SPD-Conv
-  - ResBlockCBAM
+ Chúng tôi điều chỉnh kiến trúc mô hình YOLOv8 bằng thêm vào những phương pháp sau:
+  - Một lớp nhận diện vật thể nhỏ có feature map là 160x160
+  - **SPD-Conv mô đun**
+  - **ResBlockCBAM mô đun**
+  <p align="center">
+  <img src="img\archi.jpg" width="1024" title="details">
+</p>
 
 ## Kết quả thực nghiệm của mô hình trên tập dữ liệu
 | Lớp nhận diện vật thể nhỏ | SPD | ResBlock_CBAM | Precision | Recall | mAP@0.5(%) | mAP@0.5:0.95(%) |
