@@ -4,14 +4,6 @@
 ## Giới thiệu
 Dự án này tập trung vào việc cải tiến kiến trúc YOLOv8 cho việc nhận diện biển báo giao thông ở Việt Nam.
 
-<!-- ## Requirements -->
-
-
-<!-- ## Environment
-```
-  pip install -r requirements.txt
-``` -->
-
 ## Tập dữ liệu thực nghiệm
 ### Tải tập dữ liệu thực nghiệm
 * Bạn có thể tải tập dữ liệu thực nghiệm từ Roboflow: [Traffic Sign Detection Image Dataset](https://universe.roboflow.com/trafficsigndetection-2u5ca/trafficsigndetection-gmvvi/dataset/7). 
@@ -35,6 +27,34 @@ Bộ dữ liệu này được chia thành các tập:
 - Tập kiểm định: chiếm 20 % tập dữ liệu.
 - Tập kiểm tra: chiếm 20 % tập dữ liệu.
 
+Cấu trúc tập dữ liệu khi tải về: 
+
+       TrafficSignDetection Image Dataset
+          └── data   
+               ├── data.yaml
+               ├── README.dataset.txt
+               ├── README.roboflow.txt
+               ├── train
+               │    ├── images
+               │    │    ├── train_img1.png
+               │    │    └── ...
+               │    ├── labels
+               │    │    ├── train_annotation1.txt
+               │    │    └── ...    
+               ├── valid
+               │    ├── images
+               │    │    ├── valid_img1.png
+               │    │    └── ...
+               │    ├── labels
+               │    │    ├── valid_annotation1.txt
+               │    │    └── ... 
+               ├── test
+               │    ├── images
+               │    │    ├── test_img1.png
+               │    │    └── ...
+               │    ├── labels
+               │    │    ├── test_annotation1.txt
+               │    │    └── ... 
 
 Một số hình ảnh về tập dữ liệu thực nghiệm: 
 
@@ -47,7 +67,9 @@ Một số hình ảnh về tập dữ liệu thực nghiệm:
   - **Một lớp nhận diện vật thể nhỏ**: Được thêm vào để nâng cao khả năng phát hiện các đối tượng nhỏ như biển báo giao thông, với bản đồ đặc trưng 160x160.
   - **SPD-Conv mô đun**:  Giúp cải thiện quá trình trích xuất đặc trưng bằng cách tăng cường khả năng phân tích không gian.
   - **ResBlockCBAM mô đun**: Tích hợp để cải thiện biểu diễn đặc trưng, giúp mô hình tập trung vào các khu vực quan trọng trong ảnh.
-  <p align="center">
+
+## Kiến trúc YOLOv8 cải tiến
+<p align="center">
   <img src="img\archi.jpg" width="1024" title="details">
 </p>
 
@@ -59,3 +81,19 @@ Một số hình ảnh về tập dữ liệu thực nghiệm:
 | ✓ | | ✓ | 0.698 | 0.817 | 0.818 | 0.67|
 | ✓ | ✓ | | 0.798 | 0.777 | 0.822 | 0.668 |
 | ✓ | ✓ | ✓ | 0.774 | 0.76 | 0.832 | 0.681 |
+
+## Một số hình ảnh của mô hình YOLOv8 trong tác vụ nhận diện biển báo giao thông với tập dữ liệu thực nghiệm
+
+<p align="center">
+  <img src="img\3.jpg" width="1024" title="details">
+</p>
+
+
+<p align="center">
+  <img src="img\2.jpg" width="1024" title="details">
+</p>
+
+
+<p align="center">
+  <img src="img\1.jpg" width="1024" title="details">
+</p>
