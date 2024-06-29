@@ -365,7 +365,7 @@ class ResBlock_CBAM(nn.Module):
 
     def forward(self, x):
         residual = x
-        #out = self.bottleneck(x)
+        out = self.bottleneck(x)
         out = self.cbam(x)
         
 
